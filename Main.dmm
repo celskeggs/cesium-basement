@@ -1,4 +1,5 @@
 "a" = (/turf,/area)
+"b" = (/obj/test,/turf,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
@@ -8,11 +9,11 @@ aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
+aaabaaaabaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
+aaaaabaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
