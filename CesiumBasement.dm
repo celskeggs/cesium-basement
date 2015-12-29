@@ -1,7 +1,3 @@
-/*
-	These are simple defaults for your project.
- */
-
 world
 	fps = 25		// 25 frames per second
 	icon_size = 32	// 32x32 icon size by default
@@ -10,7 +6,7 @@ world
 	turf = /turf/floor
 
 turf
-	icon = 'turf.dmi'
+	icon = 'structure.dmi'
 	floor
 		icon_state = "floor"
 	wall
@@ -21,7 +17,22 @@ turf
 obj/test
 	icon = 'practice.dmi'
 	icon_state = "test"
-	luminosity = 5
+
+obj/light
+	icon = 'structure.dmi'
+	icon_state = "light"
+	luminosity = 6
+
+obj/light/overhead
+	icon_state = "overhead_light"
+	luminosity = 6
+
+	New()
+		..()
+		icon_state = ""
 
 mob
 	icon = 'player.dmi'
+
+client/New()
+	src.mob = locate(/mob)

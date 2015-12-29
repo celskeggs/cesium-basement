@@ -286,8 +286,8 @@ Turfs have these additional procs and vars:
 \********************************************************************/
 
 var
-	sd_dark_icon = 'lighting.dmi'	// icon used for darkness
-	sd_dark_shades = 7					// number of icon state in sd_dark_icon
+	sd_dark_icon = 'sd_dark_alpha4.dmi'	// icon used for darkness
+	sd_dark_shades = 4					// number of icon state in sd_dark_icon
 	sd_light_layer = 50		// graphics layer for light effects
 	sd_light_outside = 0	// how bright it is outside
 	sd_top_luminosity = 0
