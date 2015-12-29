@@ -21,6 +21,7 @@ turf
 obj/test
 	icon = 'practice.dmi'
 	icon_state = "test"
+	luminosity = 5
 
 mob
 	icon = 'player.dmi'
