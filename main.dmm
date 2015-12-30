@@ -1,31 +1,31 @@
 "a" = (/turf/wall,/area)
 "b" = (/turf/floor,/area)
 "c" = (/obj/light{tag = "icon-light (NORTH)"; icon_state = "light"; dir = 1},/turf/floor,/area)
-"d" = (/obj/light,/turf/floor,/area)
-"e" = (/obj/light/overhead,/turf/floor,/area)
-"f" = (/obj/light{tag = "icon-light (WEST)"; icon_state = "light"; dir = 8},/turf/floor,/area)
-"g" = (/obj/light{tag = "icon-light (EAST)"; icon_state = "light"; dir = 4},/turf/floor,/area)
+"d" = (/obj/light{tag = "icon-light (WEST)"; icon_state = "light"; dir = 8},/turf/floor,/area)
+"e" = (/obj/light{tag = "icon-light (EAST)"; icon_state = "light"; dir = 4},/turf/floor,/area)
+"f" = (/obj/light,/turf/floor,/area)
+"g" = (/obj/light/overhead,/turf/floor,/area)
 "h" = (/mob,/turf/floor,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
+abbbbbbbbbcbbbbbbbba
 abbbbbbbbbbbbbbbbbba
 abbbbbbbbbbbbbbbbbba
+adbbbbbbbbbbbbbbbbea
 abbbbbbbbbbbbbbbbbba
 abbbbbbbbbbbbbbbbbba
-abbbbbbbbbbbbbbbbbba
-abbbbbbbbbbbbbbbbbba
-aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaabaaaaaaaaa
 abbbbbcbbbbbcbbbbbba
 abbbbbbbbbbbbbbbbbba
-abbbbbdbbbbbdbbbbbba
+abbbbbfbbbbbfbbbbbba
 aaaabaaaaaaaaabaaaaa
-abbbbbbbabbbebbbebba
-afbbbbbgabbbebbbebba
-abbbbbbbabbbebbbebba
-abbbbbbbabhbebbbebba
-abbbbbbbabbbebbbebba
-afbbbbbgabbbebbbebba
-abbbbbbbabbbebbbebba
+abbbbbbbabbbgbbbgbba
+adbbbbbeabbbgbbbgbba
+abbbbbbbabbbgbbbgbba
+abbbbbbbabhbgbbbgbba
+abbbbbbbabbbgbbbgbba
+adbbbbbeabbbgbbbgbba
+abbbbbbbabbbgbbbgbba
 aaaaaaaaaaaaaaaaaaaa
 "}
