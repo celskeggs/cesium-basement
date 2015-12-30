@@ -16,6 +16,7 @@
 // BEGIN_INCLUDE
 #include "CesiumBasement.dm"
 #include "sd_DynamicAreaLighting.dm"
+#include "play.dmf"
 #include "main.dmm"
 // END_INCLUDE
 

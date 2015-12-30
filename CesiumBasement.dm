@@ -2,7 +2,7 @@ world
 	fps = 25		// 25 frames per second
 	icon_size = 32	// 32x32 icon size by default
 
-	view = 6		// show up to 6 tiles outward from center (13x13 view)
+	view = "12x9"		// show up to 6 tiles outward from center (13x13 view)
 	turf = /turf/floor
 
 turf
@@ -33,9 +33,14 @@ obj/light/overhead
 
 mob
 	icon = 'player.dmi'
-	verb/Be()
-		set src in oview(1)
-		usr.client.mob = src
+	Click()
+		if (src in oview(1))
+			usr.client.mob = src
 
-client/New()
-	src.mob = locate(/mob)
+client
+	New()
+		src.mob = locate(/mob)
+
+	default_verb_category = "should not be here"
+	show_popup_menus = 0
+	show_verb_panel = 0
