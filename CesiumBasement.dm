@@ -33,6 +33,9 @@ obj/light/overhead
 
 mob
 	icon = 'player.dmi'
+	verb/Be()
+		set src in oview(1)
+		usr.client.mob = src
 
 client/New()
 	src.mob = locate(/mob)

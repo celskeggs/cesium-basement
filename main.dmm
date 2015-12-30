@@ -6,6 +6,7 @@
 "f" = (/obj/light,/turf/floor,/area)
 "g" = (/obj/light/overhead,/turf/floor,/area)
 "h" = (/mob,/turf/floor,/area)
+"i" = (/mob{tag = "icon-blue"; icon_state = "blue"},/turf/floor,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
@@ -23,7 +24,7 @@ aaaabaaaaaaaaabaaaaa
 abbbbbbbabbbgbbbgbba
 adbbbbbeabbbgbbbgbba
 abbbbbbbabbbgbbbgbba
-abbbbbbbabhbgbbbgbba
+abbbbbbbabhbgbbbgiba
 abbbbbbbabbbgbbbgbba
 adbbbbbeabbbgbbbgbba
 abbbbbbbabbbgbbbgbba
