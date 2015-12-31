@@ -13,15 +13,33 @@ turf
 		icon_state = "wall"
 		density = 1
 		opacity = 1
-
-obj/test
-	icon = 'practice.dmi'
-	icon_state = "test"
+	nicewall
+		icon_state = "nicewall"
+		density = 1
+		opacity = 1
 
 obj/light
 	icon = 'structure.dmi'
 	icon_state = "light"
 	luminosity = 6
+
+obj/door
+	icon = 'structure.dmi'
+	icon_state = "door"
+	density = 1
+	opacity = 1
+
+	Click()
+		if (src in oview(1))
+			sprite.Door(src)
+
+	proc/Toggle()
+		density = !density
+		sd_SetOpacity(density)
+		if (density)
+			icon_state = "door"
+		else
+			icon_state = "open_door"
 
 obj/light/overhead
 	icon_state = "overhead_light"
@@ -33,6 +51,7 @@ obj/light/overhead
 
 atom/movable/talksprite
 	var/mob/with = null
+	var/obj/door/door = null
 	icon = 'avatar.dmi'
 	screen_loc = "1,1"
 	layer = 80
@@ -41,18 +60,30 @@ atom/movable/talksprite
 	maptext_x = 220
 	maptext_y = 70
 
-	proc/Converse(mob/who, t as text)
-		with = who
+	proc/Door(obj/door/door)
+		src.door = door
+		with = null
+		icon_state = door.icon_state
 		if (!(sprite in usr.client.screen))
 			usr.client.screen += sprite
-		if (!usr.client.in_conversation)
-			usr.client.in_conversation = 1
+		usr.client.in_conversation = 1
+
+	proc/Converse(mob/who, t as text)
+		with = who
+		door = null
+		icon_state = null
+		if (!(sprite in usr.client.screen))
+			usr.client.screen += sprite
+		usr.client.in_conversation = 1
 		maptext = "<FONT FACE=Arial COLOR=black SIZE=+2><TEXT ALIGN=top>[t]</TEXT></FONT>"
 
 	Click()
 		usr.client.screen -= src
 		usr.client.in_conversation = 0
-		usr.client.mob = with
+		if (with)
+			usr.client.mob = with
+		else if (door)
+			door.Toggle()
 
 var/atom/movable/talksprite/sprite = new/atom/movable/talksprite()
 

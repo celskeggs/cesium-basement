@@ -4,9 +4,18 @@
 "d" = (/obj/light{tag = "icon-light (WEST)"; icon_state = "light"; dir = 8},/turf/floor,/area)
 "e" = (/obj/light{tag = "icon-light (EAST)"; icon_state = "light"; dir = 4},/turf/floor,/area)
 "f" = (/obj/light,/turf/floor,/area)
-"g" = (/obj/light/overhead,/turf/floor,/area)
-"h" = (/mob,/turf/floor,/area)
-"i" = (/mob{tag = "icon-blue"; icon_state = "blue"},/turf/floor,/area)
+"g" = (/turf/nicewall{tag = "icon-nicewall (SOUTHEAST)"; icon_state = "nicewall"; dir = 6},/area)
+"h" = (/turf/nicewall,/area)
+"i" = (/obj/door,/turf/floor,/area)
+"j" = (/turf/nicewall{tag = "icon-nicewall (SOUTHWEST)"; icon_state = "nicewall"; dir = 10},/area)
+"k" = (/turf/nicewall{tag = "icon-nicewall (EAST)"; icon_state = "nicewall"; dir = 4},/area)
+"l" = (/obj/light/overhead,/turf/floor,/area)
+"m" = (/turf/nicewall{tag = "icon-nicewall (WEST)"; icon_state = "nicewall"; dir = 8},/area)
+"n" = (/mob,/turf/floor,/area)
+"o" = (/mob{tag = "icon-blue"; icon_state = "blue"},/turf/floor,/area)
+"p" = (/turf/nicewall{tag = "icon-nicewall (NORTHEAST)"; icon_state = "nicewall"; dir = 5},/area)
+"q" = (/turf/nicewall{tag = "icon-nicewall (NORTH)"; icon_state = "nicewall"; dir = 1},/area)
+"r" = (/turf/nicewall{tag = "icon-nicewall (NORTHWEST)"; icon_state = "nicewall"; dir = 9},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -40,13 +49,13 @@ bbbbbbbbbbabbbbbbbbbaaaaaaaaaaaaaaaaaaaa
 baaaaacaaaaacaaaaaabaaaaaaaaaaaaaaaaaaaa
 baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
 baaaaafaaaaafaaaaaabaaaaaaaaaaaaaaaaaaaa
-bbbbabbbbbbbbbabbbbbaaaaaaaaaaaaaaaaaaaa
-baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
-bdaaaaaebaaagaaagaabaaaaaaaaaaaaaaaaaaaa
-baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
-baaaaaaabahagaaagiabaaaaaaaaaaaaaaaaaaaa
-baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
-bdaaaaaebaaagaaagaabaaaaaaaaaaaaaaaaaaaa
-baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
-bbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaa
+bbbbabbbghhhhhihhhhjaaaaaaaaaaaaaaaaaaaa
+baaaaaaakaaalaaalaamaaaaaaaaaaaaaaaaaaaa
+bdaaaaaekaaalaaalaamaaaaaaaaaaaaaaaaaaaa
+baaaaaaakaaalaaalaamaaaaaaaaaaaaaaaaaaaa
+baaaaaaakanalaaaloamaaaaaaaaaaaaaaaaaaaa
+baaaaaaakaaalaaalaamaaaaaaaaaaaaaaaaaaaa
+bdaaaaaekaaalaaalaamaaaaaaaaaaaaaaaaaaaa
+baaaaaaakaaalaaalaamaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbpqqqqqqqqqqraaaaaaaaaaaaaaaaaaaa
 "}
