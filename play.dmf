@@ -41,7 +41,7 @@ window "default"
 	elem "default"
 		type = MAIN
 		pos = 281,0
-		size = 800x600
+		size = 800x640
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -80,7 +80,7 @@ window "default"
 	elem "map1"
 		type = MAP
 		pos = 0,0
-		size = 800x600
+		size = 800x640
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""

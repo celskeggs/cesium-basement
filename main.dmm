@@ -1,5 +1,5 @@
-"a" = (/turf/wall,/area)
-"b" = (/turf/floor,/area)
+"a" = (/turf/floor,/area)
+"b" = (/turf/wall,/area)
 "c" = (/obj/light{tag = "icon-light (NORTH)"; icon_state = "light"; dir = 1},/turf/floor,/area)
 "d" = (/obj/light{tag = "icon-light (WEST)"; icon_state = "light"; dir = 8},/turf/floor,/area)
 "e" = (/obj/light{tag = "icon-light (EAST)"; icon_state = "light"; dir = 4},/turf/floor,/area)
@@ -9,24 +9,44 @@
 "i" = (/mob{tag = "icon-blue"; icon_state = "blue"},/turf/floor,/area)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaa
-abbbbbbbbbcbbbbbbbba
-abbbbbbbbbbbbbbbbbba
-abbbbbbbbbbbbbbbbbba
-adbbbbbbbbbbbbbbbbea
-abbbbbbbbbbbbbbbbbba
-abbbbbbbbbbbbbbbbbba
-aaaaaaaaaabaaaaaaaaa
-abbbbbcbbbbbcbbbbbba
-abbbbbbbbbbbbbbbbbba
-abbbbbfbbbbbfbbbbbba
-aaaabaaaaaaaaabaaaaa
-abbbbbbbabbbgbbbgbba
-adbbbbbeabbbgbbbgbba
-abbbbbbbabbbgbbbgbba
-abbbbbbbabhbgbbbgiba
-abbbbbbbabbbgbbbgbba
-adbbbbbeabbbgbbbgbba
-abbbbbbbabbbgbbbgbba
-aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaa
+baaaaaaaaacaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+bdaaaaaaaaaaaaaaaaebaaaaaaaaaaaaaaaaaaaa
+baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbabbbbbbbbbaaaaaaaaaaaaaaaaaaaa
+baaaaacaaaaacaaaaaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+baaaaafaaaaafaaaaaabaaaaaaaaaaaaaaaaaaaa
+bbbbabbbbbbbbbabbbbbaaaaaaaaaaaaaaaaaaaa
+baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
+bdaaaaaebaaagaaagaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaabahagaaagiabaaaaaaaaaaaaaaaaaaaa
+baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
+bdaaaaaebaaagaaagaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaabaaagaaagaabaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaa
 "}
