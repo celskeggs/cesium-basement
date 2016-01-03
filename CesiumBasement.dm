@@ -5,6 +5,10 @@ world
 	view = "25x20"		// show up to 6 tiles outward from center (13x13 view)
 	turf = /turf/floor
 
+	New()
+		..()
+		world.log = file("debug.txt")
+
 turf
 	icon = 'structure.dmi'
 	floor
@@ -65,6 +69,40 @@ atom/movable/bgsprite
 	icon_state = "background"
 	layer = 0
 
+proc/new_convo(name as text)
+	var path = text2path("/convo/[name]")
+	return new path()
+
+convo
+	var/list/lines = list()
+	var/seq
+
+	New()
+		..()
+		Setup()
+
+	proc/Setup()
+		throw EXCEPTION("Setup not defined on conversation!")
+
+	proc/You(line as text)
+		lines.Add("L[line]")
+	proc/Them(line as text)
+		lines.Add("R[line]")
+
+	proc/Begin(mob/who)
+		seq = 0
+		src.Next(who)
+
+	proc/Next(mob/who)
+		if (seq >= length(lines))
+			return 0 // done
+		seq += 1
+		if (copytext(lines[seq], 1, 2) == "L")
+			sprite.Converse(who, copytext(lines[seq], 2), "talk_left", 220)
+		else
+			sprite.Converse(who, copytext(lines[seq], 2), "talk_right", 47)
+		return 1
+
 atom/movable/talksprite
 	var/mob/with = null
 	var/obj/door/door = null
@@ -75,6 +113,7 @@ atom/movable/talksprite
 	maptext_height = 185
 	maptext_x = 220
 	maptext_y = 70
+	var/convo/conversation = null
 
 	proc/Door(obj/door/door)
 		src.door = door
@@ -84,10 +123,15 @@ atom/movable/talksprite
 			usr.client.screen += sprite
 		usr.client.in_conversation = 1
 
-	proc/Converse(mob/who, t as text)
+	proc/StartConversation(mob/who, convo/con)
+		conversation = con
+		con.Begin(who)
+
+	proc/Converse(mob/who, t as text, icos as text, mpx as num)
 		with = who
 		door = null
-		icon_state = "talk_left"
+		icon_state = icos
+		maptext_x = mpx
 		if (!(sprite in usr.client.screen))
 			usr.client.screen += sprite
 		usr.client.in_conversation = 1
@@ -95,8 +139,9 @@ atom/movable/talksprite
 
 	Click()
 		if (with)
-			src.Close()
-			usr.client.mob = with
+			if (!conversation.Next(with))
+				src.Close()
+				usr.client.mob = with
 		else if (door)
 			door.Toggle()
 			icon_state = door.density ? "door" : "open_door"
@@ -107,6 +152,7 @@ atom/movable/talksprite
 		usr.client.screen -= src
 		usr.client.in_conversation = 0
 		maptext = null
+		conversation = null
 
 	proc/ClickOther()
 		if (door)
@@ -117,9 +163,10 @@ var/atom/movable/talksprite/sprite = new/atom/movable/talksprite()
 
 mob
 	icon = 'player.dmi'
+	var/next_conversation
 	Click()
-		if (src in oview(2))
-			sprite.Converse(src, "Hello, World!")
+		if ((src in oview(2)) && next_conversation)
+			sprite.StartConversation(src, new_convo(next_conversation))
 
 client
 	New()
