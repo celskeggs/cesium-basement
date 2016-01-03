@@ -142,6 +142,7 @@ atom/movable/talksprite
 			if (!conversation.Next(with))
 				src.Close()
 				usr.client.mob = with
+				with = null
 		else if (door)
 			door.Toggle()
 			icon_state = door.density ? "door" : "open_door"
@@ -163,10 +164,14 @@ var/atom/movable/talksprite/sprite = new/atom/movable/talksprite()
 
 mob
 	icon = 'player.dmi'
-	var/next_conversation
+	icon_state = "first"
+	var/convo/next_conversation
 	Click()
-		if ((src in oview(2)) && next_conversation)
-			sprite.StartConversation(src, new_convo(next_conversation))
+		if (src in oview(2))
+			if (!next_conversation)
+				next_conversation = first_convo(src.icon_state, usr.icon_state)
+			if (next_conversation)
+				sprite.StartConversation(src, next_conversation)
 
 client
 	New()
