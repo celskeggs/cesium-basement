@@ -21,7 +21,7 @@ turf
 obj/light
 	icon = 'structure.dmi'
 	icon_state = "light"
-	luminosity = 6
+	luminosity = 7
 
 obj/door
 	icon = 'structure.dmi'
