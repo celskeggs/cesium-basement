@@ -26,8 +26,18 @@ obj/light
 obj/door
 	icon = 'structure.dmi'
 	icon_state = "door"
+	var/base_icon_state
 	density = 1
 	opacity = 1
+
+	New()
+		if (copytext(icon_state, 1, 6) == "open_")
+			density = 0
+			opacity = 0
+			base_icon_state = copytext(icon_state, 6)
+		else
+			base_icon_state = icon_state
+		..()
 
 	Click()
 		if (src in oview(1))
@@ -37,9 +47,9 @@ obj/door
 		density = !density
 		sd_SetOpacity(density)
 		if (density)
-			icon_state = "door"
+			icon_state = base_icon_state
 		else
-			icon_state = "open_door"
+			icon_state = "open_[base_icon_state]"
 
 obj/light/overhead
 	icon_state = "overhead_light"
@@ -69,7 +79,7 @@ atom/movable/talksprite
 	proc/Door(obj/door/door)
 		src.door = door
 		with = null
-		icon_state = door.icon_state
+		icon_state = door.density ? "door" : "open_door"
 		if (!(sprite in usr.client.screen))
 			usr.client.screen += sprite
 		usr.client.in_conversation = 1
@@ -89,7 +99,7 @@ atom/movable/talksprite
 			usr.client.mob = with
 		else if (door)
 			door.Toggle()
-			icon_state = door.icon_state
+			icon_state = door.density ? "door" : "open_door"
 		else
 			src.Close()
 
