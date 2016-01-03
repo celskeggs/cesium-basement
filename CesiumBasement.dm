@@ -87,7 +87,7 @@ atom/movable/talksprite
 	proc/Converse(mob/who, t as text)
 		with = who
 		door = null
-		icon_state = null
+		icon_state = "talk_left"
 		if (!(sprite in usr.client.screen))
 			usr.client.screen += sprite
 		usr.client.in_conversation = 1
