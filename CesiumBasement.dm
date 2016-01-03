@@ -24,7 +24,7 @@ turf
 
 obj/Click()
 	if (src in oview(1))
-		sprite.StartConversation(null, click_convo(src))
+		usr.client.sprite.StartConversation(click_convo(src))
 
 obj/light
 	icon = 'structure.dmi'
@@ -74,18 +74,23 @@ proc/new_convo(name as text)
 	return new path()
 
 convo
-	proc/Begin(mob/who)
+	proc/Begin(atom/movable/talksprite/sprite)
 		throw EXCEPTION("Begin not defined on conversation!")
 
-	proc/Next(mob/who)
+	proc/Next(atom/movable/talksprite/sprite)
 		throw EXCEPTION("Next not defined on conversation!")
+
+	proc/ClickOut(atom/movable/talksprite/sprite)
+		sprite.Close()
 
 convo/talk
 	var/list/lines = list()
 	var/seq
+	var/mob/with
 
-	New()
+	New(mob/with)
 		..()
+		src.with = with
 		Setup()
 
 	proc/Setup()
@@ -95,23 +100,33 @@ convo/talk
 		lines.Add("L[line]")
 	proc/Them(line as text)
 		lines.Add("R[line]")
+	proc/Become()
+		lines.Add("B")
 
-	Begin(mob/who)
+	Begin(atom/movable/talksprite/sprite)
 		seq = 0
-		src.Next(who)
+		src.Next(sprite)
 
-	Next(mob/who)
+	Next(atom/movable/talksprite/sprite)
 		if (seq >= length(lines))
-			return 0 // done
+			sprite.Close()
+			return
 		seq += 1
-		if (copytext(lines[seq], 1, 2) == "L")
-			sprite.Converse(who, copytext(lines[seq], 2), "talk_left", 220)
-		else
-			sprite.Converse(who, copytext(lines[seq], 2), "talk_right", 47)
-		return 1
+		var cmd = copytext(lines[seq], 1, 2)
+		var carg = copytext(lines[seq], 2)
+		if (cmd == "L")
+			sprite.Converse(carg, "talk_left", 220)
+		else if (cmd == "R")
+			sprite.Converse(carg, "talk_right", 47)
+		else if (cmd == "B")
+			sprite.Become(with)
+			src.Next(sprite)
+
+	ClickOut(atom/movable/talksprite/sprite)
+		// do nothing
 
 atom/movable/talksprite
-	var/mob/with = null
+	var/client/cli
 	icon = 'avatar.dmi'
 	screen_loc = "1,1"
 	layer = 80
@@ -121,38 +136,39 @@ atom/movable/talksprite
 	maptext_y = 70
 	var/convo/conversation = null
 
-	proc/StartConversation(mob/who, convo/con)
-		conversation = con
-		con.Begin(who)
+	New(client/cli)
+		..()
+		src.cli = cli
 
-	proc/Converse(mob/who, t as text, icos as text, mpx as num)
-		with = who
+	proc/StartConversation(convo/con)
+		conversation = con
+		con.Begin(src)
+
+	proc/Converse(t as text, icos as text, mpx as num)
 		icon_state = icos
 		maptext_x = mpx
-		if (!(sprite in usr.client.screen))
-			usr.client.screen += sprite
-		usr.client.in_conversation = 1
+		if (!(src in cli.screen))
+			cli.screen += src
+		cli.in_conversation = 1
 		maptext = "<FONT FACE=Arial COLOR=black SIZE=+2><TEXT ALIGN=top>[t]</TEXT></FONT>"
 
+	proc/Become(mob/with)
+		cli.mob = with
+		usr = with
+
 	Click()
-		if (!conversation.Next(with))
-			src.Close()
-			if (with)
-				usr.client.mob = with
-			with = null
+		conversation.Next(src)
 
 	proc/Close()
-		usr.client.screen -= src
-		usr.client.in_conversation = 0
+		cli.screen -= src
+		cli.in_conversation = 0
 		maptext = null
 		conversation = null
 
 	proc/ClickOther()
-		if (!with)
-			src.Close()
+		conversation.ClickOut(src)
 
 var/atom/movable/bgsprite/bg = new/atom/movable/bgsprite()
-var/atom/movable/talksprite/sprite = new/atom/movable/talksprite()
 
 mob
 	icon = 'player.dmi'
@@ -161,12 +177,15 @@ mob
 	Click()
 		if (src in oview(2))
 			if (!next_conversation)
-				next_conversation = first_convo(src.icon_state, usr.icon_state)
+				next_conversation = first_convo(src, usr)
 			if (next_conversation)
-				sprite.StartConversation(src, next_conversation)
+				usr.client.sprite.StartConversation(next_conversation)
 
 client
+	var/atom/movable/talksprite/sprite
+
 	New()
+		sprite = new/atom/movable/talksprite(src)
 		src.mob = locate(/mob)
 		screen += bg
 
