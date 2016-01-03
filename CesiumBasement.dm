@@ -49,6 +49,12 @@ obj/light/overhead
 		..()
 		icon_state = ""
 
+atom/movable/bgsprite
+	icon = 'avatar.dmi'
+	screen_loc = "1,1"
+	icon_state = "background"
+	layer = 0
+
 atom/movable/talksprite
 	var/mob/with = null
 	var/obj/door/door = null
@@ -78,13 +84,25 @@ atom/movable/talksprite
 		maptext = "<FONT FACE=Arial COLOR=black SIZE=+2><TEXT ALIGN=top>[t]</TEXT></FONT>"
 
 	Click()
-		usr.client.screen -= src
-		usr.client.in_conversation = 0
 		if (with)
+			src.Close()
 			usr.client.mob = with
 		else if (door)
 			door.Toggle()
+			icon_state = door.icon_state
+		else
+			src.Close()
 
+	proc/Close()
+		usr.client.screen -= src
+		usr.client.in_conversation = 0
+		maptext = null
+
+	proc/ClickOther()
+		if (door)
+			src.Close()
+
+var/atom/movable/bgsprite/bg = new/atom/movable/bgsprite()
 var/atom/movable/talksprite/sprite = new/atom/movable/talksprite()
 
 mob
@@ -96,10 +114,11 @@ mob
 client
 	New()
 		src.mob = locate(/mob)
+		screen += bg
 
 	Click(object, location, control, params)
 		if (in_conversation && object != sprite)
-			// NAH
+			sprite.ClickOther()
 		else
 			..(object, location, control, params)
 
