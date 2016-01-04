@@ -13,6 +13,8 @@ turf
 	icon = 'structure.dmi'
 	floor
 		icon_state = "floor"
+		elevator
+			icon_state = "elevator_floor"
 	wall
 		icon_state = "wall"
 		density = 1
@@ -22,9 +24,13 @@ turf
 		density = 1
 		opacity = 1
 
-obj/Click()
-	if (src in oview(1))
-		usr.client.sprite.StartConversation(click_convo(src))
+obj
+	Click(location, control, params)
+		if (src in oview(1))
+			var/convo/convo = src.Interact()
+			if (convo)
+				usr.client.sprite.StartConversation(convo)
+	proc/Interact()
 
 obj/light
 	icon = 'structure.dmi'
@@ -47,6 +53,9 @@ obj/door
 			base_icon_state = icon_state
 		..()
 
+	Interact()
+		return new/convo/door(src)
+
 	proc/Toggle()
 		density = !density
 		sd_SetOpacity(density)
@@ -54,6 +63,30 @@ obj/door
 			icon_state = base_icon_state
 		else
 			icon_state = "open_[base_icon_state]"
+
+obj/panel
+	icon = 'structure.dmi'
+	icon_state = "elevator_panel"
+	var/top = 0
+	var/bottom = 0
+
+	Interact()
+		return new/convo/panel(src)
+
+	proc/Query()
+		return "[top][bottom]"
+
+	proc/PressTop()
+		top = !top
+
+	proc/PressBottom()
+		bottom = !bottom
+
+obj/door/elevator
+	icon_state = "elevator_door"
+
+	Interact()
+		return new/convo/door/elevator(src)
 
 obj/light/overhead
 	icon_state = "overhead_light"
@@ -77,7 +110,7 @@ convo
 	proc/Begin(atom/movable/talksprite/sprite)
 		throw EXCEPTION("Begin not defined on conversation!")
 
-	proc/Next(atom/movable/talksprite/sprite)
+	proc/Next(atom/movable/talksprite/sprite, list/params)
 		throw EXCEPTION("Next not defined on conversation!")
 
 	proc/ClickOut(atom/movable/talksprite/sprite)
@@ -156,8 +189,9 @@ atom/movable/talksprite
 		cli.mob = with
 		usr = with
 
-	Click()
-		conversation.Next(src)
+	Click(location, control, params)
+		var p = params2list(params)
+		conversation.Next(src, p)
 
 	proc/Close()
 		cli.screen -= src
@@ -190,6 +224,7 @@ client
 		screen += bg
 
 	Click(object, location, control, params)
+		world.log << "CLICK [object] @ [location] @ [control] @ [params]"
 		if (in_conversation && object != sprite)
 			sprite.ClickOther()
 		else

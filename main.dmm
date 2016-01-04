@@ -3,20 +3,23 @@
 "c" = (/obj/light{tag = "icon-light (NORTH)"; icon_state = "light"; dir = 1},/turf/floor,/area)
 "d" = (/obj/light{tag = "icon-light (WEST)"; icon_state = "light"; dir = 8},/turf/floor,/area)
 "e" = (/obj/light{tag = "icon-light (EAST)"; icon_state = "light"; dir = 4},/turf/floor,/area)
-"f" = (/obj/door{tag = "icon-open_door"; icon_state = "open_door"},/turf/floor,/area)
-"g" = (/obj/light,/turf/floor,/area)
-"h" = (/obj/door,/turf/floor,/area)
-"i" = (/turf/nicewall{tag = "icon-nicewall (SOUTHEAST)"; icon_state = "nicewall"; dir = 6},/area)
-"j" = (/turf/nicewall,/area)
-"k" = (/obj/door{tag = "icon-nicedoor"; icon_state = "nicedoor"},/turf/floor,/area)
-"l" = (/turf/nicewall{tag = "icon-nicewall (SOUTHWEST)"; icon_state = "nicewall"; dir = 10},/area)
-"m" = (/turf/nicewall{tag = "icon-nicewall (EAST)"; icon_state = "nicewall"; dir = 4},/area)
-"n" = (/turf/nicewall{tag = "icon-nicewall (WEST)"; icon_state = "nicewall"; dir = 8},/area)
-"o" = (/mob,/turf/floor,/area)
-"p" = (/mob{icon_state = "blue"},/turf/floor,/area)
-"q" = (/turf/nicewall{tag = "icon-nicewall (NORTHEAST)"; icon_state = "nicewall"; dir = 5},/area)
-"r" = (/turf/nicewall{tag = "icon-nicewall (NORTH)"; icon_state = "nicewall"; dir = 1},/area)
-"s" = (/turf/nicewall{tag = "icon-nicewall (NORTHWEST)"; icon_state = "nicewall"; dir = 9},/area)
+"f" = (/obj/light,/turf/floor,/area)
+"g" = (/obj/door{tag = "icon-open_door"; icon_state = "open_door"},/turf/floor,/area)
+"h" = (/obj/panel,/turf/wall,/area)
+"i" = (/turf/floor/elevator,/area)
+"j" = (/obj/door/elevator,/turf/floor/elevator,/area)
+"k" = (/obj/door,/turf/floor,/area)
+"l" = (/turf/nicewall{tag = "icon-nicewall (SOUTHEAST)"; icon_state = "nicewall"; dir = 6},/area)
+"m" = (/turf/nicewall,/area)
+"n" = (/obj/door{tag = "icon-nicedoor"; icon_state = "nicedoor"},/turf/floor,/area)
+"o" = (/turf/nicewall{tag = "icon-nicewall (SOUTHWEST)"; icon_state = "nicewall"; dir = 10},/area)
+"p" = (/turf/nicewall{tag = "icon-nicewall (EAST)"; icon_state = "nicewall"; dir = 4},/area)
+"q" = (/turf/nicewall{tag = "icon-nicewall (WEST)"; icon_state = "nicewall"; dir = 8},/area)
+"r" = (/mob,/turf/floor,/area)
+"s" = (/mob{icon_state = "blue"},/turf/floor,/area)
+"t" = (/turf/nicewall{tag = "icon-nicewall (NORTHEAST)"; icon_state = "nicewall"; dir = 5},/area)
+"u" = (/turf/nicewall{tag = "icon-nicewall (NORTH)"; icon_state = "nicewall"; dir = 1},/area)
+"v" = (/turf/nicewall{tag = "icon-nicewall (NORTHWEST)"; icon_state = "nicewall"; dir = 9},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -40,23 +43,23 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaa
-baaaaaaaaacaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+baaaaaaaacaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
 baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
 baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
 bdaaaaaaaaaaaaaaaaebaaaaaaaaaaaaaaaaaaaa
 baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
-baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
-bbbbbbbbbbfbbbbbbbbbaaaaaaaaaaaaaaaaaaaa
-baaaaacaaaaacaaaaaabaaaaaaaaaaaaaaaaaaaa
-baaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
-baaaaagaaaaagaaaaaabaaaaaaaaaaaaaaaaaaaa
-bbbbhbbbijjjjjkjjjjlaaaaaaaaaaaaaaaaaaaa
-baaaaaaamaaacaaacaanaaaaaaaaaaaaaaaaaaaa
-bdaaaaaemaaaaaaaaaanaaaaaaaaaaaaaaaaaaaa
-baaaaaaamaaaaaaaaaanaaaaaaaaaaaaaaaaaaaa
-baaaaaaamaoaaaaaapanaaaaaaaaaaaaaaaaaaaa
-baaaaaaamaaaaaaaaaanaaaaaaaaaaaaaaaaaaaa
-bdaaaaaemaaaaaaaaaanaaaaaaaaaaaaaaaaaaaa
-baaaaaaamaaagaaagaanaaaaaaaaaaaaaaaaaaaa
-bbbbbbbbqrrrrrrrrrrsaaaaaaaaaaaaaaaaaaaa
+baaaaaaaafaaaaaaaaabaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbgbbbbbbbbbbbbbbbbbbbbbaaaaaaaa
+baaaaacaaaaacaaaaaacaaaaaachiiibaaaaaaaa
+baaaaaaaaaaaaaaaaaaaaaaaaaajiiibaaaaaaaa
+baaaaafaaaaafaaaaaafaaaaaafbiiibaaaaaaaa
+bbbbkbbblmmmmmnmmmmobbbbbbbbbbbbaaaaaaaa
+baaaaaaapaaacaaacaaqaaaaaaaaaaaaaaaaaaaa
+bdaaaaaepaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaa
+baaaaaaapaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaa
+baaaaaaaparaaaaaasaqaaaaaaaaaaaaaaaaaaaa
+baaaaaaapaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaa
+bdaaaaaepaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaa
+baaaaaaapaaafaaafaaqaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbtuuuuuuuuuuvaaaaaaaaaaaaaaaaaaaa
 "}
